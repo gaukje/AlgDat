@@ -7,12 +7,25 @@ public class Oppg1 {
 
         int min_index = min(a);
         System.out.println(min_index);
+        System.out.println(a[min_index]);
     }
 
     static int min(int[] a){
+        //initialiserer med første element
         int min_value = a[0];
         int min_index = 0;
 
+        //Loop over alle resterende elementer og sjekker om vi finner et mindre tall
+        for(int i=1; i < a.length; ++i){
+            int value = a[i];
+            int index = i;
+
+            if(value < min_value){
+                min_value = value;
+                min_index = index;
+            }
+        }
+        //Returnerer index til minste verdi
         return min_index;
     }
 }
