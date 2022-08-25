@@ -3,9 +3,8 @@ package Oppgaver;
 
 public class Oppg1_1_5 {
     public static void main(String[] args) {
-        int []eks = {100,2,9};
-        int sjekk = maks(eks);
-        System.out.println(sjekk);
+        int []eks = {1,2,3,4};
+        System.out.println(maks(eks));
     }
 
     public static int maks(int[] a)  // versjon 3 av maks-metoden
