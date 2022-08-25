@@ -42,7 +42,7 @@ public class Oppg1_1_3 {
             return n*fak(n-1);
         } else {
             return 1;
-        }
+        }                               //Antall multiplikasjoner er avhengig av n.
     }
     // Fasit til 1.1.3.6:
     public static long fac(int n)
