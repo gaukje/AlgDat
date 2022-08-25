@@ -11,7 +11,7 @@ public class Oppg1_1_2 {
         System.out.println(a[min_index]);
     }
     //Maks metoden fra 1.1.2 - eksempel
-    public static int maks(int[] a)  // a er en heltallstabell
+    public static int maks1(int[] a)  // a er en heltallstabell
     {
         if (a.length < 1)
             throw new java.util.NoSuchElementException("Tabellen a er tom!");

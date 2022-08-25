@@ -4,10 +4,10 @@ package Oppgaver;
 public class Oppg1_1_5 {
     public static void main(String[] args) {
         int []eks = {1,2,3,4};
-        System.out.println(maks(eks));
+        System.out.println(maks3(eks));
     }
 
-    public static int maks(int[] a)  // versjon 3 av maks-metoden
+    public static int maks3(int[] a)  // versjon 3 av maks-metoden
     {
         int sist = a.length - 1;       // siste posisjon i tabellen
         int m = 0;                     // indeks til største verdi
