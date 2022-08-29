@@ -3,8 +3,6 @@ package Oppgaver;
 import java.util.Random;
 
 import static Oppgaver.Oppg1_1_2.maks1;
-import static Oppgaver.Oppg1_1_4.maks2;
-import static Oppgaver.Oppg1_1_5.maks3;
 
 //Oppgave 1.1.10 - Koden er for det meste kopiert men med noen justeringer.
 public class Oppg1_1_10 {
@@ -25,12 +23,12 @@ public class Oppg1_1_10 {
         System.out.println("Maks1-metoden: " + tid + " millisek");
 
         tid = System.currentTimeMillis();    // leser av klokken
-        for (int i = 0; i < antall; i++) maks2(a);  // Programkode 1.1.4
+        for (int i = 0; i < antall; i++) Oppg1_1_4.maks2(a);  // Programkode 1.1.4
         tid = System.currentTimeMillis() - tid;     // medgått tid
         System.out.println("Maks2-metoden: " + tid + " millisek");
 
         tid = System.currentTimeMillis();    // leser av klokken
-        for (int i = 0; i < antall; i++) maks3(a);  // Programkode 1.1.5
+        for (int i = 0; i < antall; i++) Oppg1_1_5.maks3(a);  // Programkode 1.1.5
         tid = System.currentTimeMillis() - tid;     // medgått tid
         System.out.println("Maks3-metoden: " + tid + " millisek");
     }
