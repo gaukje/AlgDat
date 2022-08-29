@@ -1,4 +1,4 @@
-package Oppgaver;
+package uke1;
 
 public class Oppg1_1_4 {
     public static void main(String[] args) {

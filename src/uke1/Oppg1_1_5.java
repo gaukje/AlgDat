@@ -1,4 +1,4 @@
-package Oppgaver;
+package uke1;
 //Oppg. 1.1.5.1 - skal sjekke om koden gir riktige resultater
 
 public class Oppg1_1_5 {

@@ -1,5 +1,5 @@
 
-package Oppgaver;
+package uke1;
 public class Oppg1_1_2 {
 
     //Oppgave 1.1.2.1 og 1.1.2.2

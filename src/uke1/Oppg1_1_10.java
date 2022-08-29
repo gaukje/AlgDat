@@ -1,8 +1,8 @@
-package Oppgaver;
+package uke1;
 
 import java.util.Random;
 
-import static Oppgaver.Oppg1_1_2.maks1;
+import static uke1.Oppg1_1_2.maks1;
 
 //Oppgave 1.1.10 - Koden er for det meste kopiert men med noen justeringer.
 public class Oppg1_1_10 {

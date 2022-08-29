@@ -1,4 +1,4 @@
-package Oppgaver;
+package uke2;
 
 import java.util.Arrays;
 

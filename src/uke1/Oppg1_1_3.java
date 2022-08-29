@@ -1,4 +1,4 @@
-package Oppgaver;
+package uke1;
 //OPPG 1.1.3.5
 
 
