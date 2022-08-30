@@ -90,6 +90,8 @@ public class Tabell {
 
         return m;  // posisjonen til minste verdi i a[fra:til>
     }
+
+    //Oppg 1.2.2
     public static void skriv(int[] a, int fra, int til) {
         if(fra < 0 || til > a.length || fra >= til) {
             throw new IllegalArgumentException("Ulovlig intervall!");
