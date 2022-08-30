@@ -47,6 +47,8 @@ public class Tabell {
 
     public static int maks(int[] a, int fra, int til)
     {
+        if (a == null) throw new NullPointerException("Parametertabellen a er null");
+
         fratilKontroll(a.length,fra,til);
         if (fra == til)
             throw new NoSuchElementException
