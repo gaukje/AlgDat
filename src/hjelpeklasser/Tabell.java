@@ -2,6 +2,7 @@ package hjelpeklasser;
 
 
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 import java.util.Random;
 
 public class Tabell {
@@ -46,10 +47,10 @@ public class Tabell {
 
     public static int maks(int[] a, int fra, int til)
     {
-        if (fra < 0 || til > a.length || fra >= til)
-        {
-            throw new IllegalArgumentException("Illegalt intervall!");
-        }
+        fratilKontroll(a.length,fra,til);
+        if (fra == til)
+            throw new NoSuchElementException
+                    ("fra(" + fra + ") = til(" + til + ") - tomt tabellintervall!");
 
         int m = fra;              // indeks til største verdi i a[fra:til>
         int maksverdi = a[fra];   // største verdi i a[fra:til>
