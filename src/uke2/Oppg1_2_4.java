@@ -27,17 +27,36 @@ public class Oppg1_2_4 {
 
         int m = maks(a);  // m er posisjonen til tabellens største verdi
 
-        Tabell.bytt(a, a.length - 1, m);
+        Tabell.bytt(a, 0, m);   //Bytter om slik at m kommer først.
+
+        int nm = Tabell.maks(a, 1, a.length);
+
+        if(nm == m) {               //"Den nest største lå opprinnelig fremst"
+            nm = 0;
+        }
+
+        Tabell.bytt(a, 0, m);
+
+        return new int[] {m,nm};
+
+    } // nestMaks
+
+    public static int [] nestMaksBak(int[] a) {
+        if (a.length < 2) throw   // må ha minst to verdier!
+                new java.util.NoSuchElementException("a.length(" + a.length + ") < 2!");
+
+        int m = maks(a);  // m er posisjonen til tabellens største verdi
+
+        Tabell.bytt(a, a.length - 1, m);        //Bytter om slik at den største kommer bakerst
 
         int nm = Tabell.maks(a, 0, a.length - 1);
 
-        if(nm == m) {
+        if(nm == m) {           //Den nest største lå opprinnelig bakerst
             nm = a.length - 1;
         }
 
-        Tabell.bytt(a, a.length - 1, m);
+        Tabell.bytt(a, a.length - 1, m);            //Bytter tilbake
 
         return new int[] {m,nm};      // m i posisjon 0 , nm i posisjon 1
-
-    } // nestMaks
+    }
 }
