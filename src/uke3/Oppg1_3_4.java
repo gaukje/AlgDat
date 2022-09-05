@@ -28,5 +28,10 @@ public class Oppg1_3_4 {
             a[m] = a[i];
             a[i] = minVerdi;
         }
+        //I a[m] = a[i]; a[i] = minverdi; inngår det to tilordninger og tre tabellaksesser,
+        // mens det i int temp = a[i]; a[i] = a[m]; a[m] = temp; inngår tre tilordninger og fire tabellaksesser.
+        // Vi sparer en tilordning og to tabellaksesser. Men dette vil ikke ha noen målbar effekt på
+        // algoritmens effektivitet. Innsparingen skjer i den ytre løkken og den går bare n − 1 ganger.
+        // Det er innsparinger i den indre løkken som vil kunne få effekt.
     }
 }
