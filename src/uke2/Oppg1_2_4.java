@@ -59,4 +59,12 @@ public class Oppg1_2_4 {
 
         return new int[] {m,nm};      // m i posisjon 0 , nm i posisjon 1
     }
+
+    public static int[] sorteringsAlgoritme(int[] a) {
+        for (int i = a.length; i > 1; i--) {
+            int m = Tabell.maks(a,0, i);
+            Tabell.bytt(a, i - 1, m);
+        }
+        return a;
+    }
 }
