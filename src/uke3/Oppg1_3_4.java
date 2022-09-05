@@ -3,6 +3,8 @@ package uke3;
 
 import hjelpeklasser.Tabell;
 
+//Sjekk DATS2300 mappa og gå inn på notat for oppgaver som ikke er her.
+
 public class Oppg1_3_4 {
     //Oppg 1.3.4 - 3)
     public static void main(String[] args) {
@@ -42,4 +44,9 @@ public class Oppg1_3_4 {
             Tabell.bytt(a, i, Tabell.min(a, i, til));
         }
     }
+
+    // 10) - Utvalgssortering er ikke stabil fordi metoden kan bytte plass på verdier for å få tabell sortert, men
+    // vil likevel prioritere den første laveste verdien fremfor samme verdi på en tilfeldig plass i tabellen.
+
+    // 11) Sjekket fasit - evt. gjør d på nytt
 }
