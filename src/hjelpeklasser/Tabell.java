@@ -240,4 +240,11 @@ public class Tabell {
         for (int i = 0; i < a.length - 1; i++)
             bytt(a, i, min(a, i, a.length));  // to hjelpemetoder
     }
+    // 1.3.4. 9)
+    public static void utvalgsSortering(int[] a, int fra, int til){
+        fratilKontroll(a.length, fra, til);
+        for(int i = fra; i < til - 1; i++) {
+            bytt(a, i, min(a, i, til));
+        }
+    }
 }

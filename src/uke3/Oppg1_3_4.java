@@ -34,4 +34,12 @@ public class Oppg1_3_4 {
         // algoritmens effektivitet. Innsparingen skjer i den ytre løkken og den går bare n − 1 ganger.
         // Det er innsparinger i den indre løkken som vil kunne få effekt.
     }
+
+    // 9)
+    public static void utvalgsSortering(int[] a, int fra, int til){
+        Tabell.fratilKontroll(a.length, fra, til);
+        for(int i = fra; i < til - 1; i++) {
+            Tabell.bytt(a, i, Tabell.min(a, i, til));
+        }
+    }
 }
