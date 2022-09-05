@@ -17,7 +17,7 @@ public class Oppg1_3_4 {
             int m = i;                              // indeks til den foreløpig minste
             int minVerdi = a[i];                    // verdien til den foreløpig minste
 
-            for(int j = 0; j < a.length; < j++) {
+            for(int j = 0; j < a.length; j++) {
 
                 if(a[j] < minVerdi) {
                     minVerdi = a[j];                // ny minste verdi
@@ -26,7 +26,7 @@ public class Oppg1_3_4 {
             }
             // Bytter om a[i] og a[m]
             a[m] = a[i];
-            a[i]; minVerdi;
+            a[i] = minVerdi;
         }
     }
 }
