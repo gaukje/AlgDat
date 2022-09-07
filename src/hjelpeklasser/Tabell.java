@@ -258,4 +258,22 @@ public class Tabell {
 
         return verdi == a[i] ? i : -(i + 1);   // sjekker innholdet i a[i]
     }
+
+    // 1.3.6 - binærsøk (3.versjon, hopp fra venstre)
+    public static int binærsøk(int[] a, int fra, int til, int verdi)
+    {
+        Tabell.fratilKontroll(a.length,fra,til);  // se Programkode 1.2.3 a)
+        int v = fra, h = til - 1;  // v og h er intervallets endepunkter
+
+        while (v < h)  // obs. må ha v < h her og ikke v <= h
+        {
+            int m = (v + h)/2;  // heltallsdivisjon - finner midten
+
+            if (verdi > a[m]) v = m + 1;   // verdi må ligge i a[m+1:h]
+            else  h = m;                   // verdi må ligge i a[v:m]
+        }
+        if (h < v || verdi < a[v]) return -(v + 1);  // ikke funnet
+        else if (verdi == a[v]) return v;            // funnet
+        else  return -(v + 2);                       // ikke funnet
+    }
 }
