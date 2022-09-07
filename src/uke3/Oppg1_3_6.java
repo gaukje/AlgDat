@@ -6,6 +6,18 @@ public class Oppg1_3_6 {
     public static void main(String[] args) {
         int[] a = {1, 3, 4, 4, 5, 7, 7, 7, 7, 8, 9, 10, 10, 12, 15, 15, 15};
         System.out.println(binærsøk1(a, 0,a.length, 4));
+        System.out.println(binærsøk1(a, 0,a.length, 7));
+        System.out.println(binærsøk1(a, 0,a.length, 10));
+        System.out.println(binærsøk1(a, 0,a.length, 15));
+        System.out.println("\n 3.binærsøk: \n");
+        // 3) - Hos de tre første returneres det indeksen til den siste forekomsten av verdiene, men på siste deloppgave
+        // får vi indeksen til den midterste forekomsten.
+        System.out.println(Tabell.binærsøk(a,0, a.length, 4));
+        System.out.println(Tabell.binærsøk(a,0, a.length, 7));
+        System.out.println(Tabell.binærsøk(a,0, a.length, 10));
+        System.out.println(Tabell.binærsøk(a,0, a.length, 15));
+
+        // 4) Ser at når vi bruker 3.binærsøks-metode så får vi alltid indeksen til første forekomst av verdien vi leter etter.
     }
 
     //1. versjon av binærsøk
