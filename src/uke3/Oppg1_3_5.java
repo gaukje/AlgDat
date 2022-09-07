@@ -2,6 +2,8 @@ package uke3;
 
 import hjelpeklasser.Tabell;
 
+import static java.lang.Math.sqrt;
+
 public class Oppg1_3_5 {
     public static void main(String[] args) {
         //Oppg 2)
@@ -9,6 +11,7 @@ public class Oppg1_3_5 {
         System.out.println(Tabell.lineærsøk(a, 1));
         System.out.println(lineærsøk(a,40));
         System.out.println(lineærsøkHopp(a, 3, 23));            //5b)
+        System.out.println(kvadratrotsøk(a, 25));
     }
     //Oppg 3)
     public static int lineærsøk(int[] a, int verdi) // legges i class Tabell
@@ -34,5 +37,10 @@ public class Oppg1_3_5 {
 
         if (i < a.length && a[i] == verdi) return i;  // funnet
         else return -(i + 1);
+    }
+
+    //Oppg 5 c)
+    public static int kvadratrotsøk(int[] a, int verdi){
+        return lineærsøkHopp(a, (int) Math.sqrt(a.length), verdi);
     }
 }
