@@ -278,12 +278,14 @@ public class Tabell {
     }
 
     // 1.3.8 - innsettingssortering
-    public static void innsettingssortering(int[] a)
+    public static void innsettingssortering(int[] a, int fra, int til)
     {
-        for (int i = 1; i < a.length; i++)  // starter med i = 1
+        fratilKontroll(a.length, fra, til);
+        for (int i = fra + 1; i < til; i++)  // starter med a[fra + 1] siden "fra" er det første elementet
         {
             int temp = a[i];  // hjelpevariabel
-            for (int j = i - 1; j >= 0 && temp < a[j]; j--) Tabell.bytt(a, j, j + 1);
+            int j = i - 1; for (; j >= fra && temp < a[j]; j--) a[j+1] = a[j];
+            a[j+1] = temp;
         }
     }
 }
