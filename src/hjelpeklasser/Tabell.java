@@ -276,4 +276,14 @@ public class Tabell {
         else if (verdi == a[v]) return v;            // funnet
         else  return -(v + 2);                       // ikke funnet
     }
+
+    // 1.3.8 - innsettingssortering
+    public static void innsettingssortering(int[] a)
+    {
+        for (int i = 1; i < a.length; i++)  // starter med i = 1
+        {
+            int temp = a[i];  // hjelpevariabel
+            for (int j = i - 1; j >= 0 && temp < a[j]; j--) Tabell.bytt(a, j, j + 1);
+        }
+    }
 }
