@@ -14,10 +14,20 @@ public class Oppg1_4_1 {
 
         System.out.println(a[k] + "\n " + d[l] + "\n " + s[m]);
 
+        //Oppg. 2
         char[] c = "JASMIN".toCharArray();
         System.out.println(maks(c));
-    }
 
+        //Oppg. 3
+        Integer[] tre = {5,2,7,3,9,1,8,4,6};
+        System.out.println(maksI(tre));
+
+        //Oppg. 4
+        Integer e = 1;
+        Integer f = 0;
+        System.out.println(test(e,f));
+    }
+    //Oppg 2
     public static int maks(char[] a){
         int m = 0;
         char maksverdi = a[0];
@@ -27,5 +37,21 @@ public class Oppg1_4_1 {
             m = i;
         }
         return m;
+    }
+    public static int maksI(Integer[] a)    // legges i class Tabell
+    {
+        int m = 0;                          // indeks til største verdi
+        Integer maksverdi = a[0];            // største verdi
+
+        for (int i = 1; i < a.length; i++) if (a[i].compareTo(maksverdi) > 0)
+        {
+            maksverdi = a[i];  // største verdi oppdateres
+            m = i;             // indeks til største verdi oppdaters
+        }
+        return m;  // returnerer posisjonen til største verdi
+    }
+    public static int test(Integer a, Integer b)    // legges i class Tabell
+    {
+       return a.compareTo(b);
     }
 }
