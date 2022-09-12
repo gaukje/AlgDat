@@ -21,10 +21,11 @@ public class Oppg1_3_8 {
 
         Tabell.skrivln(a, 0, antall);  // Se Oppgave 4 og 5 i Avsnitt 1.2.2
 
-        tidsforbrukInsOgUtv();
+        //tidsforbrukInsOgUtv();
     }
 
     // 6)
+    /*
     public static void tidsforbrukInsOgUtv(){
         int[] a = Tabell.randPerm(10000);
         int[] b = a.clone();
@@ -39,4 +40,6 @@ public class Oppg1_3_8 {
         System.out.println("Utvalgssortering :" + tid1);
         System.out.println("Insettingssortering : "+ tid2);
     }
+
+     */
 }
