@@ -26,6 +26,17 @@ public class Oppg1_4_1 {
         Integer e = 1;
         Integer f = 0;
         System.out.println(test(e,f));
+
+        //Oppg. 5
+        String s1 = "A";
+        String t = "C";
+        System.out.println(test2(s1,t));
+        //Ser at s1.compareTo(t) returnerer et negativt tall om t er større enn s1. I tillegg ser vi at returnverdien er
+        //differansen mellom strengene. dvs. at f.eks. A vs. B returnerer -1 og A vs. C returnerer -2
+
+        //Oppg. 6
+        System.out.println(Boolean.compare(false, true));
+        //Ser at vi returnverdien blir -1 siden false er "mindre enn" true
     }
     //Oppg 2
     public static int maks(char[] a){
@@ -53,5 +64,10 @@ public class Oppg1_4_1 {
     public static int test(Integer a, Integer b)    // legges i class Tabell
     {
        return a.compareTo(b);
+    }
+
+    public static int test2(String a, String b)    // legges i class Tabell
+    {
+        return a.compareTo(b);
     }
 }
