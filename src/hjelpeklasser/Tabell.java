@@ -347,4 +347,47 @@ public class Tabell {
             a[j + 1] = verdi;      // j + 1 er rett sortert plass
         }
     }
+
+    //1.4.3 - Oppgave 5 - skriv, skrivln og bytt med datatypen Object
+    public static void skriv(Object[] a, int fra, int til){
+        Tabell.fratilKontroll(a.length, fra, til);
+
+        for (int i = fra; i < til; i++){
+            System.out.println(a[i]+"");
+        }
+    }
+
+    public static void skriv(Object[] a)
+    {
+        skriv(a,0,a.length);
+    }
+
+    public static void skrivln(Object[] a, int fra, int til)
+    {
+        skriv(a,fra,til);
+        System.out.println();
+    }
+
+    // 1.4.3 - Oppgave 6
+    public static void bytt(Object[] a, int i, int j)
+    {
+        Object temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    public static Integer[] randPermInteger(int n)
+    {
+        Integer[] a = new Integer[n];               // en Integer-tabell
+        Arrays.setAll(a, i -> i + 1);               // tallene fra 1 til n
+
+        Random r = new Random();   // hentes fra  java.util
+
+        for (int k = n - 1; k > 0; k--)
+        {
+            int i = r.nextInt(k+1);  // tilfeldig tall fra [0,k]
+            bytt(a,k,i);             // bytter om
+        }
+        return a;  // tabellen med permutasjonen returneres
+    }
 }
