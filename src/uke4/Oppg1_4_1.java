@@ -13,5 +13,19 @@ public class Oppg1_4_1 {
         int m = Tabell.maks(s);     // posisjonen til den største i s
 
         System.out.println(a[k] + "\n " + d[l] + "\n " + s[m]);
+
+        char[] c = "JASMIN".toCharArray();
+        System.out.println(maks(c));
+    }
+
+    public static int maks(char[] a){
+        int m = 0;
+        char maksverdi = a[0];
+
+        for (int i = 1; i < a.length; i++)if (a[i] > 0){
+            maksverdi = a[i];
+            m = i;
+        }
+        return m;
     }
 }
