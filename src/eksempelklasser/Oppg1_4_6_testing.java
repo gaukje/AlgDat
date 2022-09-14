@@ -26,5 +26,33 @@ public class Oppg1_4_6_testing {
 
         System.out.println(Arrays.toString(p));           // Utskrift av tabellen p
         // [Ali Kahn, Azra Zukanovic, Boris Zukanovic, Kari Svendsen, Kari Pettersen]
+
+        //1.4.6 e)
+        Tabell.innsettingssortering(p, (p1,p2) -> p1.fornavn().compareTo(p2.fornavn()));
+        System.out.println(Arrays.toString(p));
+
+        //1.4.6 f)
+        Student[] s = new Student[7];                             // en studenttabell
+        s[0] = new Student("Kari","Svendsen", Studium.Data);      // Kari Svendsen
+        s[1] = new Student("Boris","Zukanovic", Studium.IT);      // Boris Zukanovic
+        s[2] = new Student("Ali","Kahn", Studium.Anvendt);        // Ali Kahn
+        s[3] = new Student("Azra","Zukanovic", Studium.IT);       // Azra Zukanovic
+        s[4] = new Student("Kari","Pettersen", Studium.Data);     // Kari Pettersen
+        s[5] = new Student("Per","Jensen",Studium.Enkeltemne);   // Per Jensen
+        s[6] = new Student("Kari","Lie",Studium.Enkeltemne);     // Kari Lie
+
+        Tabell.innsettingssortering(s, (s1,s2) -> s1.studium().compareTo(s2.studium()));
+        System.out.println(Arrays.toString(s));
+
+        // Oppg. 2 - 1.4.6 g)
+        Komparator<Student> x = (s1,s2) ->
+        {
+            int cmp = s1.studium().compareTo(s2.studium());
+            return cmp != 0 ? cmp : s1.compareTo(s2);
+        };
+
+        Tabell.innsettingssortering(s);    // Programkode 1.4.6 b)
+        System.out.println(Arrays.toString(s));
     }
+
 }
