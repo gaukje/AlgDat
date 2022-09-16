@@ -1,5 +1,6 @@
 package uke4;
 
+import eksempelklasser.Dato;
 import eksempelklasser.Person;
 import hjelpeklasser.Tabell;
 
@@ -63,6 +64,20 @@ public class Oppg1_4_9 {
                 Comparator.comparingDouble(Point::getX).thenComparingDouble(Point::getY));
 
         //Hopper over oppgave 3f) og 3g)
+
+        //Oppgave 4a)
+        Dato[] d = new Dato[5];           // en datotabell
+        d[0] = new Dato(24,12,2014);      // 24/12-2014
+        d[1] = new Dato(24,12,2012);      // 24/12-2012
+        d[2] = new Dato(9,12,2013);       // 9/12-2013
+        d[3] = new Dato(25,12,2012);      // 25/12-2012
+        d[4] = new Dato(10,12,2013);      // 10/12-2013
+
+        //Oppgave 4b)
+        Tabell.innsettingssorteringC(d, Comparator.naturalOrder());
+        for (Dato v : d) System.out.print(v + " ");
+
+        // Utskrift: 24/12-2012 25/12-2012 9/12-2013 10/12-2013 24/12-2014
     }
 
     //Oppgave 1)
