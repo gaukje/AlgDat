@@ -407,4 +407,26 @@ public class Tabell {
             a[j + 1] = verdi;      // j + 1 er rett sortert plass
         }
     }
+
+    //1.4.6 - 4)
+    public static <T> int maks(T[] a, Komparator<? super T> c) {
+        return maks(a, 0, a.length, c);
+    }
+    //1.4.6 - 4)
+    public static <T> int maks(T[] a, int fra, int til, Komparator<? super T> c) {
+        fratilKontroll(a.length, fra, til);
+        if (fra == til) throw new NoSuchElementException
+        ("fra(" + fra + ") = til(" + til + ") - tomt tabellintervall!");
+
+        int m = fra;                           // indeks til største verdi
+        T maksverdi = a[fra];             // største verdi
+
+        for (int i = 1; i < til; i++) {
+            if (c.compare(a[i], maksverdi) > 0) {   // bruker komparatoren
+                maksverdi = a[i];     // største verdi oppdateres
+                m = i;                // indeks til største verdi oppdaters
+            }
+        }
+        return m;     // returnerer posisjonen til største verdi
+    }
 }
