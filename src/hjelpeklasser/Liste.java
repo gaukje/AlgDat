@@ -1,6 +1,7 @@
 package hjelpeklasser;
 
 import java.util.Iterator;
+import java.util.Objects;
 
 public interface Liste<T> extends Beholder<T>
 {

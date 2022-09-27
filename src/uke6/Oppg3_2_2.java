@@ -14,5 +14,9 @@ public class Oppg3_2_2 {
 
         //Oppgave 3)
         System.out.println(liste);
+
+        //3.2.3 - 1)
+        liste.fjern("");
+        System.out.println(liste);
     }
 }

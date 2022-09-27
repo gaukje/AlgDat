@@ -1,6 +1,7 @@
 package hjelpeklasser;
 
 import java.util.Iterator;
+import java.util.Objects;
 
 //3.2.2 oppgave 1
 public class TabellListe<T> implements Liste<T> {
@@ -56,10 +57,37 @@ public class TabellListe<T> implements Liste<T> {
         return antall == 0;     // listen er tom hvis antall er 0
     }
 
-    @Override
-    public void nullstill() {
+    //3.2.3 - 1)
+    public boolean fjern(T verdi){
+        Objects.requireNonNull(verdi, "null er ulovlig!");
 
+        for (int i = 0; i < antall; i++) {
+            if (a[i].equals(verdi)) {
+                antall--;
+                System.arraycopy(a, i + 1, a, i, antall - i);
+
+                a[antall] = null;
+
+                return true;
+            }
+        }
+        return false;
     }
+
+    //3.2.3 - 2)
+    public void nullstill() {
+        if (a.length > 10) {
+            a = (T[])new Object[10];
+        } else {
+            for (int i = 0; i < antall; i++) a[i] = null;
+        }
+    }
+
+    @Override
+    public T fjern(int indeks) {
+        return null;
+    }
+
 
     @Override
     public Iterator<T> iterator() {
@@ -83,16 +111,6 @@ public class TabellListe<T> implements Liste<T> {
 
     @Override
     public T oppdater(int indeks, T verdi) {
-        return null;
-    }
-
-    @Override
-    public boolean fjern(T verdi) {
-        return false;
-    }
-
-    @Override
-    public T fjern(int indeks) {
         return null;
     }
 
