@@ -134,19 +134,58 @@ public class EnkeltLenketListe<T> implements Liste<T>
     }
 
     @Override
-    public boolean inneholder(T t)
+    public int indeksTil(T verdi) {
+        if (verdi == null) return -1;
+
+        Node<T> p = hode;
+
+        for (int indeks = 0; indeks < antall; indeks++) {
+            if (p.verdi.equals(verdi)) return indeks;
+            p = p.neste;
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean inneholder(T verdi) {
+        return indeksTil(verdi) != -1;
+    }
+
+    private Node<T> finnNode(int indeks)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        Node<T> p = hode;
+        for (int i = 0; i < indeks; i++) p = p.neste;
+        return p;
+    }
+
+    public T fjern(int indeks)
+    {
+        indeksKontroll(indeks, false);  // Se Liste, false: indeks = antall er ulovlig
+
+        T temp;                              // hjelpevariabel
+
+        if (indeks == 0)                     // skal første verdi fjernes?
+        {
+            temp = hode.verdi;                 // tar vare på verdien som skal fjernes
+            hode = hode.neste;                 // hode flyttes til neste node
+            if (antall == 1) hale = null;      // det var kun en verdi i listen
+        }
+        else
+        {
+            Node<T> p = finnNode(indeks - 1);  // p er noden foran den som skal fjernes
+            Node<T> q = p.neste;               // q skal fjernes
+            temp = q.verdi;                    // tar vare på verdien som skal fjernes
+
+            if (q == hale) hale = p;           // q er siste node
+            p.neste = q.neste;                 // "hopper over" q
+        }
+
+        antall--;                            // reduserer antallet
+        return temp;                         // returner fjernet verdi
     }
 
     @Override
     public T hent(int indeks)
-    {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
-    }
-
-    @Override
-    public int indeksTil(T t)
     {
         throw new UnsupportedOperationException("Ikke laget ennå!");
     }
@@ -158,17 +197,30 @@ public class EnkeltLenketListe<T> implements Liste<T>
     }
 
     @Override
-    public T fjern(int indeks)
-    {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
-    }
+    public boolean fjern(T verdi) {
+        if (verdi == null) return false;          // ingen nullverdier i listen
 
-    @Override
-    public boolean fjern(T t)
-    {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
-    }
+        Node<T> q = hode, p = null;               // hjelpepekere
 
+        while (q != null)                         // q skal finne verdien t
+        {
+            if (q.verdi.equals(verdi)) break;       // verdien funnet
+            p = q; q = q.neste;                     // p er forgjengeren til q
+        }
+
+        if (q == null) return false;              // fant ikke verdi
+        else if (q == hode) hode = hode.neste;    // går forbi q
+        else p.neste = q.neste;                   // går forbi q
+
+        if (q == hale) hale = p;                  // oppdaterer hale
+
+        q.verdi = null;                           // nuller verdien til q
+        q.neste = null;                           // nuller nestepeker
+
+        antall--;                                 // en node mindre i listen
+
+        return true;                              // vellykket fjerning
+    }
 
     @Override
     public Iterator<T> iterator()
