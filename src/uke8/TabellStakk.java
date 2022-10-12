@@ -118,7 +118,36 @@ public class TabellStakk<T> implements Stakk<T>
             n--;
         }
     }
-    //4.1.2 - 5)
+    //4.1.2 - 6)
+    public static <T> void kopier2(Stakk<T> A, Stakk<T> B) {
+        int n = A.antall();
+
+        while (n > 0) {
+            for (int j = 0; j < n; j++) B.leggInn(A.taUt());
+            T temp = B.kikk();
+
+            for (int j = 0; j < n; j++) A.leggInn(B.taUt());
+            B.leggInn(temp);
+            n--;
+        }
+    }
+
+    //4.1.2 - 7)
+    public static <T> void sorter2(Stakk<T> A, Comparator<? super T> c) {
+        Stakk<T> B = new TabellStakk<>();
+        T temp; int n = 0;
+
+        while (!A.tom()) {
+            temp = A.taUt();
+            n = 0;
+            while (!B.tom() && c.compare(temp, B.kikk()) < 0) {
+                n++; A.leggInn(B.taUt());
+            }
+            B.leggInn(temp);
+            for (int i = 0; i < n; i++) B.leggInn(A.taUt());
+        }
+        while (!B.tom()) A.leggInn(B.taUt());
+    }
 
 
     // de andre metodene skal inn her!
