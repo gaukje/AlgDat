@@ -1,7 +1,11 @@
 package hjelpeklasser;
 
+import uke8.Stakk;
+import uke8.TabellStakk;
+
 import java.util.NoSuchElementException;
 
+//Oppgave 5
 public class TabellKø<T> implements Kø<T>
 {
     private T[] a;      // en tabell
@@ -67,7 +71,7 @@ public class TabellKø<T> implements Kø<T>
         if (fra == a.length) fra = 0;     // hopper til 0
         return temp;                      // returnerer den første
     }
-
+    //Oppgave 6
     @Override
     public int antall() {
         return fra <= til ? til - fra : a.length + til - fra;
@@ -86,6 +90,7 @@ public class TabellKø<T> implements Kø<T>
         }
     }
 
+    //Oppgave 7)
     @Override
     public String toString() {
         if (til == fra) return "[]";
@@ -107,5 +112,32 @@ public class TabellKø<T> implements Kø<T>
         s.append(']');
 
         return s.toString();
+    }
+
+    //Oppgave 8)
+    public int indeksTil(T verdi) {
+        int k = fra;
+
+        while (k != til) {
+            if (verdi.equals(a[k]))
+                return fra <= k ? k - fra : a.length + k - fra;
+            k++; if (k == a.length) k = 0;
+        }
+
+        return -1; //ikke funnet
+    }
+
+    //Oppgave 9)
+    public static <T> void snu(Stakk<T> A) {
+        Kø<T> B = new TabellKø<>();
+        while (!A.tom()) B.leggInn(A.taUt());
+        while (!B.tom()) A.leggInn(B.taUt());
+    }
+
+    //Oppgave 10
+    public static <T> void snu(Kø<T> A) {
+        Stakk<T> B = new TabellStakk<>();
+        while (!A.tom()) B.leggInn(A.taUt());
+        while (!B.tom()) A.leggInn(B.taUt());
     }
 } // class TabellKø
