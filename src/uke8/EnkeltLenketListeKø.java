@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-
+/*
 public class EnkeltLenketListeKø<T> implements Liste<T>, Kø<T>
 
 {
@@ -423,3 +423,5 @@ public class EnkeltLenketListeKø<T> implements Liste<T>, Kø<T>
 
 }  // class EnkeltLenketListe
 
+
+ */

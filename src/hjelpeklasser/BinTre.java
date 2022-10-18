@@ -20,6 +20,8 @@ public class BinTre<T>           // et generisk binærtre
     private Node<T> rot;      // referanse til rotnoden
     private int antall;       // antall noder i treet
 
+    public BinTre() { rot = null; antall = 0; }          // konstruktør
+
     //5.1.5 c)
     public BinTre(int[] posisjon, T[] verdi)  // konstruktør
     {
@@ -106,5 +108,34 @@ public class BinTre<T>           // et generisk binærtre
         p.verdi = nyverdi;
 
         return gammelverdi;
+    }
+
+    public T fjern(int posisjon)
+    {
+        if (posisjon < 1) throw new
+                IllegalArgumentException("Posisjon(" + posisjon + ") < 1!");
+
+        Node<T> p = rot, q = null;               // hjelpepekere
+        int filter = Integer.highestOneBit(posisjon >> 1);   // binært siffer
+
+        while (p != null && filter > 0)
+        {
+            q = p;
+            p = (filter & posisjon) == 0 ? p.venstre : p.høyre;
+            filter >>= 1;
+        }
+
+        if (p == null) throw new
+                IllegalArgumentException("Posisjon(" + posisjon + ") er utenfor treet!");
+
+        if (p.venstre != null || p.høyre != null) throw new
+                IllegalArgumentException("Posisjon(" + posisjon + ") er ingen bladnode!");
+
+        if (p == rot) rot = null;
+        else if (p == q.venstre) q.venstre = null;
+        else q.høyre = null;
+
+        antall--;  //
+        return p.verdi;
     }
 } // class BinTre<T>
