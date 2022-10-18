@@ -138,4 +138,38 @@ public class BinTre<T>           // et generisk binærtre
         antall--;  //
         return p.verdi;
     }
+
+    public void nivåorden()                // skal ligge i class BinTre
+    {
+        if (tom()) return;                   // tomt tre
+
+        Kø<Node<T>> kø = new TabellKø<>();   // Se Avsnitt 4.2.2
+        kø.leggInn(rot);                     // legger inn roten
+
+        while (!kø.tom())                    // så lenge som køen ikke er tom
+        {
+            Node<T> p = kø.taUt();             // tar ut fra køen
+            System.out.print(p.verdi + " ");   // skriver ut
+
+            if (p.venstre != null) kø.leggInn(p.venstre);
+            if (p.høyre != null) kø.leggInn(p.høyre);
+        }
+    }
+
+    //Oppgave 5.1.6 - 3)
+    public void nivåorden(Oppgave<? super T> oppgave)    // ny versjon
+    {
+        if (tom()) return;                   // tomt tre
+        Kø<Node<T>> kø = new TabellKø<>();   // Se Avsnitt 4.2.3
+        kø.leggInn(rot);                     // legger inn roten
+
+        while (!kø.tom())                    // så lenge køen ikke er tom
+        {
+            Node<T> p = kø.taUt();             // tar ut fra køen
+            oppgave.utførOppgave(p.verdi);     // den generiske oppgaven
+
+            if (p.venstre != null) kø.leggInn(p.venstre);
+            if (p.høyre != null) kø.leggInn(p.høyre);
+        }
+    }
 } // class BinTre<T>
