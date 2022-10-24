@@ -209,4 +209,30 @@ public class BinTre<T>           // et generisk binærtre
         }
         p.verdi = null;              // nuller verdien
     }
+
+    //Oppgave 5.1.10 - 1)
+    private static <T> void preorden(Node<T> p, Oppgave<? super T> oppgave)
+    {
+        while (true)
+        {
+            oppgave.utførOppgave(p.verdi);
+            if (p.venstre != null) preorden(p.venstre,oppgave);
+            if (p.høyre == null) return;      // metodekallet er ferdig
+            p = p.høyre;
+        }
+    }
+
+    //Oppgave 5.1.10 - 4)
+    private static <T> void inorden(Node<T> p, Oppgave<? super T> oppgave)
+    {
+        while (true)
+        {
+            if (p.venstre != null) inorden(p.venstre,oppgave);
+            oppgave.utførOppgave(p.verdi);
+            if (p.høyre == null) return;      // metodekallet er ferdig
+            p = p.høyre;
+        }
+    }
+
+    //Oppgave 5.1.10 - 7)
 } // class BinTre<T>
