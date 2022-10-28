@@ -160,4 +160,21 @@ public class SBinTre<T> // implements Beholder<T>
         }
         return false;                               // ikke funnet
     }
+
+    //5.2.6 - 2)
+    public int antall(T verdi) {
+        Node<T> p = rot;
+        int antallVerdi = 0;
+
+        while (p != null) {
+            int cmp = comp.compare(verdi, p.verdi);
+            if (cmp < 0) p = p.venstre;
+
+            else {
+                if (cmp == 0) antallVerdi++;
+                p = p.høyre;
+            }
+        }
+        return antallVerdi;
+    }
 } // class SBinTre
