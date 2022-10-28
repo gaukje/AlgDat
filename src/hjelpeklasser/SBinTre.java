@@ -115,4 +115,49 @@ public class SBinTre<T> // implements Beholder<T>
     {
         if (!tom()) inorden(rot,oppgave);
     }
+
+    // 5.2.5 - a)
+    private static <T> Node<T> balansert(T[] a, int v, int h)  // en rekursiv metode
+    {
+        if (v > h) return null;                       // tomt intervall -> tomt tre
+
+        int m = (v + h)/2;                            // midten
+        T verdi = a[m];                               // midtverdien
+
+        while (v < m && verdi.equals(a[m-1])) m--;    // til venstre
+
+        Node<T> p = balansert(a, v, m - 1);           // venstre subtre
+        Node<T> q = balansert(a, m + 1, h);           // høyre subtre
+
+        return new Node<>(verdi, p, q);               // rotnoden
+    }
+
+    // 5.2.5 - b)
+    public static <T> SBinTre<T> balansert(T[] a, Comparator<? super T> c)
+    {
+        SBinTre<T> tre = new SBinTre<>(c);          // oppretter et tomt tre
+        tre.rot = balansert(a, 0, a.length - 1);    // bruker den rekursive metoden
+        tre.antall = a.length;                      // setter antallet
+        return tre;                                 // returnerer treet
+    }
+
+    public static <T extends Comparable<? super T>> SBinTre<T> balansert(T[] a) {
+        return balansert(a, Comparator.naturalOrder());
+    }
+
+    //5.2.6 a)
+    public boolean inneholder(T verdi)     // skal ligge i klassen SBinTre
+    {
+        if (verdi == null) return false;            // treet har ikke nullverdier
+
+        Node<T> p = rot;                            // starter i roten
+        while (p != null)                           // sjekker p
+        {
+            int cmp = comp.compare(verdi, p.verdi);   // sammenligner
+            if (cmp < 0) p = p.venstre;               // går til venstre
+            else if (cmp > 0) p = p.høyre;            // går til høyre
+            else return true;                         // cmp == 0, funnet
+        }
+        return false;                               // ikke funnet
+    }
 } // class SBinTre
