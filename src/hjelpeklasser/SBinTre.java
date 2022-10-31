@@ -1,9 +1,6 @@
 package hjelpeklasser;
 
-import java.util.Comparator;
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.StringJoiner;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class SBinTre<T> // implements Beholder<T>
@@ -190,4 +187,41 @@ public class SBinTre<T> // implements Beholder<T>
         return p.verdi;
     }
 
+    //5.3.1
+    public boolean erMintre(Comparator<? super T> c) // legges i BinTre
+    {
+        if (rot == null) return true;    // et tomt tre er et minimumstre
+        else return erMintre(rot,c);     // kaller den private hjelpemetoden
+    }
+
+    private static <T> boolean erMintre(Node<T> p, Comparator<? super T> c)
+    {
+        if (p.venstre != null)
+        {
+            if (c.compare(p.venstre.verdi,p.verdi) < 0) return false;
+            if (!erMintre(p.venstre,c)) return false;
+        }
+        if (p.høyre != null)
+        {
+            if (c.compare(p.høyre.verdi,p.verdi) < 0) return false;
+            if (!erMintre(p.høyre,c)) return false;
+        }
+        return true;
+    }
+
+    public String minimumsGrenen(Comparator<? super T> c) {
+        StringJoiner s = new StringJoiner(", ", "[", "]");
+
+        Node<T> p = rot;
+        while (p != null) {
+            s.add(p.verdi.toString());
+            if (p.høyre == null) p = p.venstre;                 //Har ikke høyre barn
+            else if (p.venstre == null) p = p.høyre;            //Har ikke venstre barn
+            else {
+                int cmp = c.compare(p.venstre.verdi, p.høyre.verdi);
+                p = cmp <= 0 ? p.venstre : p.høyre;
+            }
+        }
+        return s.toString();
+    }
 } // class SBinTre
