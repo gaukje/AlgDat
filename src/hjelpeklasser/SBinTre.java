@@ -1,6 +1,7 @@
 package hjelpeklasser;
 
 import java.util.Comparator;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.stream.Stream;
@@ -177,4 +178,16 @@ public class SBinTre<T> // implements Beholder<T>
         }
         return antallVerdi;
     }
+
+    //5.2.7 - 1) - maks
+    public T maks() {
+        if (tom()) throw new NoSuchElementException("Treet er tomt!");
+
+        Node<T> p = rot;
+        T maks = null;
+
+        while (p.høyre != null) p = p.høyre;
+        return p.verdi;
+    }
+
 } // class SBinTre
